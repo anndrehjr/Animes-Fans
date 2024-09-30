@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Metadados -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="formulario.css" media="screen">
+
+    <!-- Título da página -->
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="titulo">Cadastro de Fãs de Anime</h1>
+        <p id="subtitulo">Complete suas informações sobre anime</p>
+
+        <!-- Início do formulário -->
+        <form action="salvar_dados.php" method="POST">
+            <fieldset class="grupo">
+                <div class="campo">
+                    <label for="nome"><strong>Nome</strong></label>
+                    <input type="text" name="nome" id="nome" required>
+                </div>
+                <div class="campo">
+                    <label for="sobrenome"><strong>Sobrenome</strong></label>
+                    <input type="text" name="sobrenome" id="sobrenome" required>
+                </div>
+            </fieldset>
+
+            <div class="campo">
+                <label for="email"><strong>Email</strong></label>
+                <input type="email" name="email" id="email" required>
+            </div>
+
+            <div class="campo">
+                <label><strong>Qual gênero de anime você prefere?</strong></label>
+                <label>
+                    <input type="radio" name="genero" value="acao" checked>Ação
+                </label>
+                <label>
+                    <input type="radio" name="genero" value="aventura">Aventura
+                </label>
+                <label>
+                    <input type="radio" name="genero" value="fantasia">Fantasia
+                </label>
+            </div>
+
+            <div class="campo">
+                <label for="status"><strong>Qual seu status como fã de anime?</strong></label>
+                <select id="status" name="status" required>
+                    <option selected disabled value="">Selecione</option>
+                    <option>Casual</option>
+                    <option>Fã Dedicado</option>
+                    <option>Obsessivo</option>
+                </select>
+            </div>
+
+            <fieldset class="grupo">
+                <div id="check">
+                    <label><strong>Selecione seus animes favoritos:</strong></label><br><br>
+                    <input type="checkbox" id="anime1" name="anime1" value="Naruto">
+                    <label for="anime1"> Naruto</label>
+                    <input type="checkbox" id="anime2" name="anime2" value="One Piece">
+                    <label for="anime2"> One Piece</label>
+                    <input type="checkbox" id="anime3" name="anime3" value="Attack on Titan">
+                    <label for="anime3"> Attack on Titan</label>
+                    <input type="checkbox" id="anime4" name="anime4" value="Dragon Ball">
+                    <label for="anime4"> Dragon Ball</label>
+                    <input type="checkbox" id="anime5" name="anime5" value="My Hero Academia">
+                    <label for="anime5"> My Hero Academia</label>
+                    <input type="checkbox" id="anime6" name="anime6" value="Demon Slayer">
+                    <label for="anime6"> Demon Slayer</label>
+                    <input type="checkbox" id="anime7" name="anime7" value="Fullmetal Alchemist">
+                    <label for="anime7"> Fullmetal Alchemist</label>
+                </div>
+            </fieldset>
+
+            <div class="campo">
+                <br>
+                <label for="comentario"><strong>Conte um pouco mais sobre seu amor por anime:</strong></label>
+                <textarea rows="6" style="width: 26em" id="comentario" name="comentario"></textarea>
+            </div>
+
+            <button class="botao" type="submit">Concluído</button>
+        </form>
+    </div>
+</body>
+
+</html>
