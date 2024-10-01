@@ -42,47 +42,53 @@ $comentario = $_POST['comentario'];
 
 // Executar a inserção
 if ($stmt->execute()) {
-    // Se a inserção foi bem-sucedida, exibe a página de agradecimento
-    echo '
-    <!DOCTYPE html>
-    <html lang="pt-BR">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Tela de Agradecimento</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-
-    <body>
-        <div class="container">
-            <h1 class="title">Obrigado pelo seu cadastro!</h1>
-            <p class="message">Seus dados foram salvos com sucesso.</p>
-            <button class="back-button" onclick="goBack()">Voltar para o Início</button>
-        </div>
-
-        <div id="alert" class="alert">
-            <p>Cadastro realizado com sucesso!</p>
-            <button class="close-alert" onclick="closeAlert()">Fechar</button>
-        </div>
-
-        <script>
-            // Função para voltar à página inicial
-            function goBack() {
-                window.history.back();
-            }
-
-            // Função para fechar o alerta
-            function closeAlert() {
-                document.getElementById("alert").style.display = "none";
-            }
-        </script>
-    </body>
-    </html>';
+    $mensagem = "Você foi cadastrado com sucesso!";
+    $tipo_mensagem = "sucesso"; // Define o tipo de mensagem como sucesso
 } else {
-    echo "Erro ao salvar dados: " . $stmt->error;
+    $mensagem = "Erro ao salvar dados: " . $stmt->error;
+    $tipo_mensagem = "erro"; // Define o tipo de mensagem como erro
 }
 
 // Fechar a declaração e a conexão
 $stmt->close();
 $conn->close();
 ?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado do Cadastro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+            background: linear-gradient(to right, rgba(255, 103, 102, 0.8), rgba(255, 255, 255, 0.8));
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function showAlert() {
+            Swal.fire({
+                title: '<?php echo $tipo_mensagem == "sucesso" ? "Sucesso!" : "Erro!" ?>',
+                text: "<?php echo $mensagem; ?>",
+                icon: '<?php echo $tipo_mensagem == "sucesso" ? "success" : "error"; ?>',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redireciona para index.php
+                    window.location.href = "formulario.html";
+                }
+            });
+        }
+    </script>
+</head>
+<body onload="showAlert()">
+</body>
+</html>

@@ -2,10 +2,16 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url('seu_gif.gif'); /* Substitua pelo caminho do seu GIF */
-    background-size: cover;
+    background-image: url('Andre_Junior_Imagem_de_anime__com_varios__personagem_aleatorizo_93111435-ce31-469e-a345-3b4c42cfc852.png');
+    background-size: cover; /* Tente também 'contain' se necessário */
     background-attachment: fixed;
+    background-repeat: no-repeat; /* Para evitar que o GIF se repita */
+    height: 100vh; /* Garantir que o body tenha altura total */
+    display: flex; /* Usado para centralizar conteúdos, se necessário */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
 }
+
 
 .container {
     max-width: 600px;

@@ -1,0 +1,18 @@
+{
+    "acao": [
+        "Naruto", "Dragon Ball Z", "Attack on Titan", "One Punch Man", "Bleach",
+        "My Hero Academia", "Tokyo Ghoul", "Black Clover", "Jujutsu Kaisen", "The Seven Deadly Sins"
+    ],
+    "aventura": [
+        "One Piece", "Fairy Tail", "Hunter x Hunter", "Sword Art Online", "Fullmetal Alchemist: Brotherhood",
+        "Re:Zero", "Overlord", "No Game No Life", "The Rising of the Shield Hero", "Log Horizon"
+    ],
+    "fantasia": [
+        "Fate/Stay Night", "Neon Genesis Evangelion", "Sword Art Online: Alicization", "Re:Creators",
+        "Grimgar: Ashes and Illusions", "How Not to Summon a Demon Lord", "Mushoku Tensei", "The Saga of Tanya the Evil"
+    ],
+    "ecchi": [
+        "High School DxD", "To Love-Ru", "Sekirei", "Prison School", "Shinmai Maou no Testament",
+        "Monster Musume", "Heaven's Lost Property", "Freezing", "Highschool of the Dead", "Rosario + Vampire"
+    ]
+}

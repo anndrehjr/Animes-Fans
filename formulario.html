@@ -59,23 +59,29 @@
                 </select>
             </div>
 
+            <div class="campo">
+                <label><strong>Filtrar por gênero ou mostrar todos os animes:</strong></label><br>
+                <label>
+                    <input type="radio" name="genero" value="todos" checked onclick="filtrarAnimes()">Mostrar Todos
+                </label>
+                <label>
+                    <input type="radio" name="genero" value="acao" onclick="filtrarAnimes()">Ação
+                </label>
+                <label>
+                    <input type="radio" name="genero" value="aventura" onclick="filtrarAnimes()">Aventura
+                </label>
+                <label>
+                    <input type="radio" name="genero" value="fantasia" onclick="filtrarAnimes()">Fantasia
+                </label>
+                <label>
+                    <input type="radio" name="genero" value="ecchi" onclick="filtrarAnimes()">Ecchi
+                </label>
+            </div>
+            
             <fieldset class="grupo">
                 <legend><strong>Selecione seus animes favoritos:</strong></legend>
                 <div id="check">
-                    <input type="checkbox" id="anime1" name="anime1" value="Naruto">
-                    <label for="anime1">Naruto</label><br>
-                    <input type="checkbox" id="anime2" name="anime2" value="One Piece">
-                    <label for="anime2">One Piece</label><br>
-                    <input type="checkbox" id="anime3" name="anime3" value="Attack on Titan">
-                    <label for="anime3">Attack on Titan</label><br>
-                    <input type="checkbox" id="anime4" name="anime4" value="Dragon Ball">
-                    <label for="anime4">Dragon Ball</label><br>
-                    <input type="checkbox" id="anime5" name="anime5" value="My Hero Academia">
-                    <label for="anime5">My Hero Academia</label><br>
-                    <input type="checkbox" id="anime6" name="anime6" value="Demon Slayer">
-                    <label for="anime6">Demon Slayer</label><br>
-                    <input type="checkbox" id="anime7" name="anime7" value="Fullmetal Alchemist">
-                    <label for="anime7">Fullmetal Alchemist</label>
+                    <!-- Lista de animes será carregada aqui -->
                 </div>
             </fieldset>
 
@@ -88,6 +94,8 @@
             <button class="botao" type="submit">Concluído</button>
         </form>
     </div>
+
+<script src="script.js"></script>
 </body>
 
 </html>
