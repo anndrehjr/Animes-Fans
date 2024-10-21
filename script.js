@@ -1,8 +1,16 @@
 // Função para carregar o JSON de animes
 async function carregarAnimes() {
-    const response = await fetch('animes.json');
-    const data = await response.json();
-    return data;
+    try {
+        const response = await fetch('animes.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Erro ao carregar os animes:', error);
+        return {};
+    }
 }
 
 // Função para filtrar e exibir os animes
@@ -20,13 +28,13 @@ async function filtrarAnimes() {
     let listaAnimes = [];
     if (genero === 'todos') {
         listaAnimes = [
-            ...animes.acao,
-            ...animes.aventura,
-            ...animes.fantasia,
-            ...animes.ecchi
+            ...animes.acao || [],
+            ...animes.aventura || [],
+            ...animes.fantasia || [],
+            ...animes.ecchi || []
         ];
     } else {
-        listaAnimes = animes[genero];
+        listaAnimes = animes[genero] || [];
     }
 
     // Gera os checkboxes dinamicamente
@@ -48,4 +56,11 @@ async function filtrarAnimes() {
 }
 
 // Inicializa com 'Mostrar Todos' selecionado
-filtrarAnimes();
+document.addEventListener('DOMContentLoaded', () => {
+    filtrarAnimes();
+    // Adiciona evento para atualizar os animes ao mudar o gênero
+    const generoInputs = document.querySelectorAll('input[name="genero"]');
+    generoInputs.forEach(input => {
+        input.addEventListener('change', filtrarAnimes);
+    });
+});
