@@ -3,47 +3,48 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #e7140c, #e5e7eb);
+    background: linear-gradient(135deg, #e7140c, #f5f7fa);
     margin: 0;
     padding: 0;
+    color: #333;
 }
 
 /* Estilo do Container */
 .container {
     max-width: 600px;
     margin: 50px auto;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
     position: relative;
 }
 
 /* Títulos */
 #titulo {
     text-align: center;
-    color: #333;
-    font-size: 24px;
+    color: #222;
+    font-size: 28px;
     margin-bottom: 10px;
 }
 
 #subtitulo {
     text-align: center;
-    color: #666;
-    font-size: 16px;
+    color: #555;
+    font-size: 18px;
     margin-bottom: 20px;
 }
 
 /* Estilo dos Campos de Formulário */
 .campo {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     position: relative;
 }
 
 .campo label {
     display: block;
     margin-bottom: 5px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 /* Estilo dos Inputs */
@@ -52,9 +53,9 @@ body {
 .campo select,
 .campo textarea {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
     box-sizing: border-box;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -65,7 +66,7 @@ body {
 .campo textarea:focus {
     border-color: #28a745;
     outline: none;
-    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5); /* Efeito de sombra */
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.5); /* Efeito de sombra */
 }
 
 /* Estilo para Inputs de Radio e Checkbox */
@@ -82,27 +83,61 @@ body {
 
 /* Estilo do Botão */
 .botao {
-    background-color: #28a745;
+    background: linear-gradient(135deg, #28a745, #3ddc84);
     color: white;
     border: none;
-    padding: 12px;
-    border-radius: 5px;
+    padding: 15px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
     display: block;
     width: 100%;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease, filter 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Efeito de brilho */
+.botao::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
 .botao:hover {
-    background-color: #218838;
-    transform: translateY(-2px); /* Efeito de levantar o botão */
+    transform: translateY(-3px); /* Efeito de levantar o botão */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra ao passar o mouse */
+    filter: brightness(1.1); /* Aumenta o brilho ao passar o mouse */
+}
+
+.botao:hover::before {
+    opacity: 1; /* Torna o brilho visível */
+}
+
+/* Efeito de foco */
+.botao:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.5); /* Efeito de sombra ao focar */
+}
+
+/* Efeito de clique */
+.botao:active {
+    transform: translateY(1px); /* Efeito de pressão do botão */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra ao clicar */
 }
 
 /* Estilo do Rodapé */
 footer {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
     color: #666;
     font-size: 14px;
 }
@@ -110,19 +145,19 @@ footer {
 /* Responsividade */
 @media (max-width: 600px) {
     .container {
-        padding: 20px;
+        padding: 30px;
     }
 
     #titulo {
-        font-size: 20px;
+        font-size: 24px;
     }
 
     #subtitulo {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .botao {
-        padding: 10px;
-        font-size: 14px;
+        padding: 12px;
+        font-size: 16px;
     }
 }
